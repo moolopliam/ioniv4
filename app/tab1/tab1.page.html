@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="as">ข้อมูลเกรดของฉัน</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button shape="round" fill="solid" color="success" class="as"  routerLink="/tabs/tab2">
+        เพิ่มข้อมูล
+        <ion-icon slot="end" name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-card *ngFor="let item of List"  class="bg">
+    <div class="fixbtn">
+      <ion-button shape="round" fill="solid" color="secondary" (click)="Edit(item)"  class="as">แก้ไข
+        <ion-icon name="create"></ion-icon>
+      </ion-button>
+      <ion-button shape="round" fill="solid" color="danger"  (click)="presentAlertConfirm(item.g_gradeid)" class="as">ลบ
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </div>
+    <ion-item color="bg">
+      <ion-label class="as tex cc">{{item.g_subjects}}</ion-label>
+    </ion-item>
+
+    <ion-card-content>
+      <h1 class="as tex">เกรดเฉลี่ยที่ได้รับ : {{item.g_grade}}</h1>
+      <h5 class="as tex">หน่วยกิต : {{item.g_unit}}</h5>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
